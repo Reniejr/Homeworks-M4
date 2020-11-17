@@ -25,12 +25,23 @@
 .slide{
     width: 20%;
     height: 100%;
+    position: relative;
 }
 
 .slide img{
     width: 100%;
     height: 100%;
     filter: brightness(50%);
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    z-index: 10;
 }
 
 @keyframes slider{
