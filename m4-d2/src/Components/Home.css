@@ -5,17 +5,53 @@
 }
 
 .ProdsList{
-    width: 500%;
+    width: 100%;
     height: 100%;
 }
 
 .prods{
-    width: 20%;
+    width: 3000%;
     height: 100%;
     display: flex;
+    transition: margin-left 1s linear;
+    animation: slide-prods 300s infinite;
 }
+
+@keyframes slide-prods{
+    0%{margin-left: 0;}
+    3.3%{margin-left: -100%;}
+    6.6%{margin-left: -200%;}
+    9.9%{margin-left: -300%;}
+    13.2%{margin-left: -400%;}
+    16.5%{margin-left: -500%;}
+    18.8%{margin-left: -600%;}
+    22.1%{margin-left: 700%;}
+    25.4%{margin-left: -800%;}
+    28.7%{margin-left: -900%;}
+    32%{margin-left: -1000%;}
+    35.3%{margin-left: -1100%;}
+    38.6%{margin-left: -1200%;}
+    41.9%{margin-left: -1300%;}
+    45.2%{margin-left: -1400%;}
+    48.5%{margin-left: -1500%;}
+    51.8%{margin-left: -1600%;}
+    55.1%{margin-left: -1700%;}
+    58.4%{margin-left: -1800%;}
+    61.7%{margin-left: -1900%;}
+    65%{margin-left: -2000%;}
+    68.3%{margin-left: -2100%;}
+    71.6%{margin-left: -2200%;}
+    74.9%{margin-left: -2300%;}
+    78.2%{margin-left: -2400%;}
+    81.5%{margin-left: -2500%;}
+    84.8%{margin-left: -2600%;}
+    88.1%{margin-left: -2700%;}
+    91.4%{margin-left: -2800%;}
+    100%{margin-left: -2900%;}
+}
+
 .card{
-    width: 100%;
+    width: 3.3%;
     height: 100%;
     display: flex;
     flex-direction: row;
