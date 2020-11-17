@@ -16,15 +16,46 @@
     transition: margin-left 1s ease;
     animation: slide-prods 600s infinite;
     position: relative;
+    color: white;
 }
 
 @keyframes slide-prods{
     0%{margin-left: 0;}
     100%{margin-left: -2900%;}
+    /* 0%{margin-left: 0;}
+    3.3%{margin-left: -100%;}
+    6.6%{margin-left: -200%;}
+    9.9%{margin-left: -300%;}
+    13.2%{margin-left: -400%;}
+    16.5%{margin-left: -500%;}
+    18.8%{margin-left: -600%;}
+    22.1%{margin-left: 700%;}
+    25.4%{margin-left: -800%;}
+    28.7%{margin-left: -900%;}
+    32%{margin-left: -1000%;}
+    35.3%{margin-left: -1100%;}
+    38.6%{margin-left: -1200%;}
+    41.9%{margin-left: -1300%;}
+    45.2%{margin-left: -1400%;}
+    48.5%{margin-left: -1500%;}
+    51.8%{margin-left: -1600%;}
+    55.1%{margin-left: -1700%;}
+    58.4%{margin-left: -1800%;}
+    61.7%{margin-left: -1900%;}
+    65%{margin-left: -2000%;}
+    68.3%{margin-left: -2100%;}
+    71.6%{margin-left: -2200%;}
+    74.9%{margin-left: -2300%;}
+    78.2%{margin-left: -2400%;}
+    81.5%{margin-left: -2500%;}
+    84.8%{margin-left: -2600%;}
+    88.1%{margin-left: -2700%;}
+    91.4%{margin-left: -2800%;}
+    100%{margin-left: 0;} */
 }
 
 .category-info{
-    width: 3.33333%;
+    width: 3.5%;
     height: 4rem;
     position: sticky;
     left: 0;
@@ -48,6 +79,8 @@
     height: calc(100% - 4rem);
     display: flex;
     flex-direction: row;
+    padding: .5rem 0;
+    background-color: transparent;
 }
 
 .book{
@@ -58,22 +91,40 @@
     flex-direction: column;
     align-items: flex-start;
     border: solid 2px black;
+    color: black;
 }
 
-.book img{
+.book img, .card-book img{
     width: 100%;
     height: 200px;
 }
 
-.book .category{
+.category{
     text-transform: capitalize;
 }
 
-.book .title-book{
+.title-book{
     height: 20px;
     overflow-x: hidden;
 }
 
-.book .book-info{
+.book-info{
     padding: 5px;
+    background-color: white;
+    width: 100%;
+}
+
+#allBooks{
+    width: 100%;
+}
+
+.card-book{
+    width: 18%;
+    margin: .5rem 1%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid 2px black;
+    color: black;
+
 }
