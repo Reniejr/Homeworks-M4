@@ -21,15 +21,23 @@ class MyNavbar extends React.Component {
                 <ul id="nav-list">
                     <li className="nav-item">
                         <ion-icon name="home-outline"></ion-icon>
-                        <a href="">{this.props.nav1}</a>
+                        <a href={this.props.ref1}>{this.props.nav1}</a>
                     </li>
                     <li className="nav-item">
                         <ion-icon name="image-outline"></ion-icon>
-                        <a href="">{this.props.nav2}</a>
+                        <a href={this.props.ref2}>{this.props.nav2}</a>
                     </li>
                     <li className="nav-item">
                         <ion-icon name="person-outline"></ion-icon>
-                        <a href="">{this.props.nav3}</a>
+                        <a href={this.props.ref3}>{this.props.nav3}</a>
+                    </li>
+                    <li className="nav-item">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <a href={this.props.ref4}>{this.props.nav4}</a>
+                    </li>
+                    <li className="nav-item">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <a href={this.props.ref5}>{this.props.nav5}</a>
                     </li>
                 </ul>
             </nav>
