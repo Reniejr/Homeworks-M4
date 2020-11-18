@@ -36,11 +36,11 @@ class Home extends React.Component{
             return chunk
         }
 
-        let fantasy2 = split(fantasy, 5)
-        let history2 = split(history, 5)
-        let horror2 = split(horror, 5)
-        let romance2 = split(romance, 5)
-        let scifi2 = split(scifi, 5)
+        let fantasy2 = split(fantasy, 5),
+        history2 = split(history, 5),
+        horror2 = split(horror, 5),
+        romance2 = split(romance, 5),
+        scifi2 = split(scifi, 5)
         let category = [fantasy, history, horror, romance, scifi]
         let categories2 = [fantasy2, history2, horror2, romance2, scifi2]
 
@@ -97,7 +97,7 @@ class Home extends React.Component{
                     })}
                 </div>
             </div>
-            <div id='allBooks'>
+            {/* <div id='allBooks'>
                 {fantasy.map((book, index)=>{
                     return(
                         <div className='card-book' key={index}>
@@ -111,7 +111,7 @@ class Home extends React.Component{
                         </div>
                     )
                 })}  
-            </div>
+            </div> */}
         </div>)
     }
 }
