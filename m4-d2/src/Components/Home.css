@@ -1,4 +1,6 @@
-
+#home{
+  scroll-behavior: smooth;
+}
 .slider-prods{
     width: 100%;
     overflow-x: hidden;
@@ -56,25 +58,31 @@
 
 .category-info{
     width: 3.5%;
-    height: 4rem;
+    height: 6rem;
     position: sticky;
     left: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-info h4{
     font-size: 20px;
     font-weight: 800;
-    text-align: center;
     text-transform: uppercase;
 }
 
-.category-info p{
-    text-align: center;
+.category-info p{margin: 0;}
+
+.category-info a{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .card{
-    margin-top: 4rem;
+    margin-top: 6rem;
     width: 3.3333333%;
     height: calc(100% - 4rem);
     display: flex;

@@ -14,7 +14,7 @@ import Welcome from './Components/Welcome'
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyNavbar image='' userName='RenieJr' nav1='Fantasy' ref1='fantasy.html' nav2='History' ref2='#' nav3='Horror' ref3='#' nav4='Romance' ref4='#' nav5='Sci-Fi' ref5='#'></MyNavbar>
+    <MyNavbar image='' userName='RenieJr' nav1='Back to the Top' ref1='#home' nav2='History' ref2='#' nav3='Horror' ref3='#' nav4='Romance' ref4='#' nav5='Sci-Fi' ref5='#'></MyNavbar>
     <Welcome title='Best Books Only For You' message='We have only 5 categories sorry'/>
     <Home>
     </Home>
