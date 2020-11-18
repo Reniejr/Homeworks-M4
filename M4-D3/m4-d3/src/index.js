@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout'
+import Menu from './Components/Menu'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout></Layout>
+    <Layout/>
   </React.StrictMode>,
   document.getElementById('root')
 );
