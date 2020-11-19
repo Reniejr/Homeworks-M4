@@ -9,6 +9,7 @@ import Menu from './Components/Menu'
 ReactDOM.render(
   <React.StrictMode>
     <Layout/>
+    <Menu/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -10,7 +10,7 @@ export default class Menu extends PureComponent {
     render() {
         console.log(menu)
         return (
-            <Container>
+            <Container id='menu'>
                 <h1>The Best {menu[0].category}</h1>
                 <Row>
                     {menu.map((dish, index)=>{
