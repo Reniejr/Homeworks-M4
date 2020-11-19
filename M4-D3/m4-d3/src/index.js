@@ -5,11 +5,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './Components/Layout'
 import Menu from './Components/Menu'
+import MyNavbar from './Components/MyNavbar'
+import Comments from './Components/Comments'
 
 ReactDOM.render(
   <React.StrictMode>
+    <MyNavbar userName='Strive Restaurant' nav1='Home' ref1='#layout'/>
     <Layout/>
     <Menu/>
+    <Comments/>
   </React.StrictMode>,
   document.getElementById('root')
 );

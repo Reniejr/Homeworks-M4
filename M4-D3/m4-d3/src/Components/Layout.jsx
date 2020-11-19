@@ -5,10 +5,6 @@ import './Layout.scss'
 export default class Layout extends PureComponent {
     state={style:{opacity:'1'}}
 
-    // show = ()=>{
-    //     this.state.style='1'? this.setState({style:{opacity:'0'}}): this.setState({style:{opacity:'1'}})
-    // }
-
     render() {
         return (
             <div id='layout'>
@@ -21,7 +17,7 @@ export default class Layout extends PureComponent {
                     </Col>
                     <Col xs={12}>
                         <a href="#"> Reserve Table</a>
-                        <a href="#menu" /*onClick={this.show()}*/>Browse Menu</a>
+                        <a href="#menu">Browse Menu</a>
                     </Col>
                 </Row>
             </div>
