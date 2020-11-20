@@ -8,14 +8,6 @@ import SingleBook from './SingleBook'
 import ShowCase from './ShowCase'
 
 class Home extends React.Component{
-    allBooks ={
-        fantasy,
-        history,
-        horror,
-        romance,
-        scifi
-    }
-    // category = ['fantasy', 'history', 'horror', 'romance', 'scifi']
     state={
         //Category Info Theme
         infoThemes : [
@@ -33,16 +25,10 @@ class Home extends React.Component{
         {style:{backgroundColor:'#86929c'}}],
         //Selected Category
         selectedCategory:fantasy,
-        index:0
     }
 
-    selectCat = (cat, index)=>{
-        // let category = this.category[index]
-        console.log(cat)
+    changeCat = async (cat)=>{
         this.setState({selectedCategory:cat})
-        console.log(this.state.selectedCategory)
-        console.log(this.state.index)
-        console.log(index)
     }
 
     render(){
@@ -72,7 +58,7 @@ class Home extends React.Component{
                         <div className="category-info" style={this.state.infoThemes[index].style}>
                             <h4>{cat[0][0].category}</h4>
                             <p>We have {category[index].length} of {cat[0][0].category} books. Enjoy the collection</p>
-                            <a href='#allBooks' onClick={()=>this.selectCat(category[index],index)}>Click Here to see the full collection</a>
+                        <a href='#allBooks' onClick={this.changeCat(category[index])}>Click Here to see the full collection</a>
                         </div>
                         {cat.map((subCat, index1) => {
                             return (
