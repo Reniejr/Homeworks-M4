@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss'
 import reportWebVitals from './reportWebVitals';
+import RouterWebsite from './RouterWebsite';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RouterWebsite/>
   </React.StrictMode>,
   document.getElementById('root')
 );
