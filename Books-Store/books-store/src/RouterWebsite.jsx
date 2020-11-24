@@ -31,7 +31,9 @@ export default class RouterWebsite extends PureComponent {
                     toggleBtn={toggleBtn}/>
                     <Switch>
                         <Route path='/' exact component={Layout}/>
-                        <Route path='/Home' exact component={Home}/>
+                        <Route path='/Home' exact component={Home}
+                        />
+                        {/* <Route path='/Category-Page/' exact component={}/> */}
                     </Switch>
                 </div>
             </Router>
