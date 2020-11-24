@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import navlist from './Data/Navbar.json'
 import NavbarBooks from './Components/NavbarBooks'
 import ToggleBtn from './Components/ToggleBtn'
+import Layout from './Components/Layout'
 
 export default class RouterWebsite extends PureComponent {
     state = { 
@@ -20,7 +21,7 @@ export default class RouterWebsite extends PureComponent {
         let switchTheme = this.state.toggleBtn? 'dark' : 'light';
         return (
             <Router>
-                <div className={switchTheme}>
+                <div id='router-main' className={switchTheme}>
                     <NavbarBooks
                     navList={navlist} 
                     projectTitle={'Books Store'} 
@@ -29,7 +30,7 @@ export default class RouterWebsite extends PureComponent {
                     }
                     toggleBtn={toggleBtn}/>
                     <Switch>
-                        {/* <Route path='' exact component={}/> */}
+                        <Route path='/' exact component={Layout}/>
                     </Switch>
                 </div>
             </Router>

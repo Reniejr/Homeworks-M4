@@ -1,6 +1,5 @@
 .navBarBooks {
   width: 100%;
-  color: white;
   display: flex;
   height: 48px;
   align-items: center;
@@ -12,6 +11,7 @@
   transition: all 1s ease;
   border: none !important;
   z-index: 10;
+  background-color: transparent;
   a {
     text-decoration: none;
   }
