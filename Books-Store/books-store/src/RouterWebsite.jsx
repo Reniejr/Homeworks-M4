@@ -4,6 +4,7 @@ import navlist from './Data/Navbar.json'
 import NavbarBooks from './Components/NavbarBooks'
 import ToggleBtn from './Components/ToggleBtn'
 import Layout from './Components/Layout'
+import Home from './Components/Home'
 
 export default class RouterWebsite extends PureComponent {
     state = { 
@@ -12,7 +13,6 @@ export default class RouterWebsite extends PureComponent {
     }
     toggleBtnClick = () => {
         this.setState({toggleBtn: !this.state.toggleBtn})
-        console.log(this.state.toggleBtn)
         this.setState({switcher: !this.state.switcher})
     }
     render() {
@@ -31,6 +31,7 @@ export default class RouterWebsite extends PureComponent {
                     toggleBtn={toggleBtn}/>
                     <Switch>
                         <Route path='/' exact component={Layout}/>
+                        <Route path='/Home' exact component={Home}/>
                     </Switch>
                 </div>
             </Router>

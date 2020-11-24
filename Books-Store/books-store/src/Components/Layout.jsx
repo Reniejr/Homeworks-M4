@@ -8,7 +8,7 @@ export default class Layout extends PureComponent {
             <div id='home'>
                 <div className='presentation'>
                     <h1>Best Books for the Best Reader</h1>
-                    <Link>
+                    <Link to='/Home'>
                         <input type="button" value='Go to the Shop'/>
                     </Link>
                 </div>

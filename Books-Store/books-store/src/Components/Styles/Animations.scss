@@ -1,0 +1,43 @@
+/*Welcome Slider*/
+@keyframes slide {
+  0% {
+    margin-left: -200%;
+  }
+  20% {
+    margin-left: -300%;
+  }
+  40% {
+    margin-left: -400%;
+  }
+  60% {
+    margin-left: 0%;
+  }
+  80% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: -200%;
+  }
+}
+
+/*Text Opacity*/
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
