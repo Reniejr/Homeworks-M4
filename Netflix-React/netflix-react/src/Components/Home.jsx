@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import './Styles/Home.scss'
 import Movie from './Movie'
+import {} from 'react-bootstrap'
 
 export default class Home extends PureComponent {
     url = 'http://www.omdbapi.com/?'
@@ -11,7 +12,9 @@ export default class Home extends PureComponent {
     state={
         serie1:[],
         serie2:[],
-        serie3:[]
+        serie3:[],
+        margin: '0',
+        loading: true
     }
 
 
@@ -40,19 +43,23 @@ export default class Home extends PureComponent {
         console.log(this.showcase)
     }
     
-
+    slide = ()=>{
+        this.setState({margin: `-${parseFloat(this.state.margin)+100}%`})
+    }
 
     render() {
         return (
             <div className='home'>
                 {this.showcase.map((serie, index)=>{
                     return(
-                        <div className="gallery-container">
+                        <div className="gallery-container" key={index}>
                             <h4>{this.titles[index]}</h4>
-                            <div className='gallery' key={index}>
+                            <i className="fas fa-chevron-left" onClick={this.slide.bind(this)}></i>
+                            <i className="fas fa-chevron-right" onClick={this.slide.bind(this)}></i>
+                            <div className='gallery' style={{marginLeft:`${this.state.margin}`}}>
                                 {serie.map(movie=>{
                                     return(
-                                    <Movie poster={movie.Poster} key={movie.imdbID}/>
+                                    <Movie poster={movie.Poster} title={movie.Title} year={movie.Year} key={movie.imdbID}/>
                                     )
                                 })}
                             </div>
