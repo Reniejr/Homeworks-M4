@@ -4,6 +4,7 @@ import Home from './Components/Home'
 import LandingPage from './Components/LandingPage'
 import Menu from './Components/Menu'
 import NavbarRestaurant from './Components/NavbarRestaurant'
+import ReservationForm from './Components/ReservationForm'
 
 export default class RouterWeb extends PureComponent {
     render() {
@@ -15,6 +16,8 @@ export default class RouterWeb extends PureComponent {
                         <Route path='/' exact component={LandingPage}/>
                         <Route path='/Home' exact component={Home}/>
                         <Route path='/Menu' exact component={Menu}/>
+                        <Route path='/Reservation' component={ReservationForm}/>
+
                     </Switch>
                 </div>
             </Router>

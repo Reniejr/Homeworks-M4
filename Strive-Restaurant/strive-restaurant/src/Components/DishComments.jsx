@@ -9,7 +9,7 @@ export default class DishComments extends PureComponent {
     array=[]
 
     componentDidMount=()=>{
-        this.setState({comments: []})
+        this.setState({comments: this.props.dish.comments})
     }
 
 
@@ -27,14 +27,17 @@ export default class DishComments extends PureComponent {
         return (
             <div className='comments'>
                 <h4>{dish.name}</h4>
-                {this.array.map((comment, index)=>{
-                    return(
-                        <div key={index}>
-                            <p>{comment.author}</p>
-                            <p>{comment.comment}</p>
-                        </div>
-                    )
-                })}
+                <div className='comments-list'>
+                    {this.array.map((comment, index)=>{
+                        return(
+                            <div key={index}>
+                                <p>{comment.author}:</p>
+                                <p>{comment.comment}</p>
+                                <hr/>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

@@ -8,13 +8,13 @@ export default class Home extends PureComponent {
             <div id='home'>
                 <div className="option">
                     <Link to='/Menu'>
-                        <i class="fas fa-utensils"></i>
+                        <i className="fas fa-utensils"></i>
                         <h3>Take a look at the menu</h3>
                     </Link>
                 </div>
                 <div className="option">
-                    <Link>
-                        <i class="fas fa-desktop"></i>
+                    <Link to='/Reservation'>
+                        <i className="fas fa-desktop"></i>
                         <h3>Book a table</h3>
                     </Link>
                 </div>
