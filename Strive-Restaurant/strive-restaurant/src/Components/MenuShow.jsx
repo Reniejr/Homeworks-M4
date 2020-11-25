@@ -5,18 +5,22 @@ import DishComments from './DishComments'
 
 export default class MenuShow extends PureComponent {
     state={
-        selected:{}
+        selected:{},
+        display: true
     }
 
     select = (e, dish)=>{
         this.setState({selected : e})
+        this.setState({display: false})
     }
 
 
     render() {
+        let showComment = this.state.display? 'none' : 'block'
         return (
             <div id='menu-show'>
                 <h2>The best pasta only for you</h2>
+                <p>Click on image to see comments</p>
                 <div className="poster">
                     {menuList.map(dish=>{
                         return(
@@ -30,8 +34,10 @@ export default class MenuShow extends PureComponent {
                         )
                     })}
                 </div>
-                <h5>Comments</h5>
-                <DishComments dish={this.state.selected}/>
+                <div className="comments-area" style={{display:`${showComment}`}}>
+                    <h5>Comments</h5>
+                    <DishComments dish={this.state.selected}/>
+                </div>
             </div>
         )
     }

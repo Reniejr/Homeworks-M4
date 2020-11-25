@@ -3,22 +3,14 @@ import './Styles/DishComments.scss'
 
 export default class DishComments extends PureComponent {
     state={
-        comments:this.props.dish.comments
+        comments:[]
     }
-
-    array=[]
-
-    componentDidMount=()=>{
-        this.setState({comments: this.props.dish.comments})
-    }
-
-
+    
     componentDidUpdate = (prevState)=>{
         let dish= this.props.dish
         this.setState({comments: dish.comments})
         if(prevState.comments !== this.state.comments){
-            console.log('prev=', prevState.comments, 'new=', this.state.comments)
-            this.array=this.state.comments
+            console.log('new=', this.state.comments)
         }
     }
 
@@ -28,7 +20,7 @@ export default class DishComments extends PureComponent {
             <div className='comments'>
                 <h4>{dish.name}</h4>
                 <div className='comments-list'>
-                    {this.array.map((comment, index)=>{
+                    {this.state.comments.map((comment, index)=>{
                         return(
                             <div key={index}>
                                 <p>{comment.author}:</p>
