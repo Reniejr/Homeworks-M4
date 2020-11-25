@@ -11,7 +11,7 @@ class NavbarRestaurant extends PureComponent {
                 <div className="logo">
                     <img src='' alt=""/>
                     <div className="projectTitle">
-                        <Link to='/'>
+                        <Link to='/' exact style={{color:'white'}}>
                              {projectTitle}
                         </Link>
                     </div>

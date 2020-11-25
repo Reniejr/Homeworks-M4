@@ -13,7 +13,7 @@ export default class Home extends PureComponent {
                     </Link>
                 </div>
                 <div className="option">
-                    <Link to='/Reservation'>
+                    <Link to='/Reserve Table'>
                         <i className="fas fa-desktop"></i>
                         <h3>Book a table</h3>
                     </Link>
