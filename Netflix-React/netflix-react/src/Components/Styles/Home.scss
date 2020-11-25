@@ -1,0 +1,15 @@
+.home {
+  width: 100%;
+  margin-top: 64px;
+  .gallery-container {
+    width: 100%;
+    height: 46vh;
+    display: flex;
+    flex-direction: column;
+    .gallery {
+      width: 200%;
+      height: 40vh;
+      display: flex;
+    }
+  }
+}
