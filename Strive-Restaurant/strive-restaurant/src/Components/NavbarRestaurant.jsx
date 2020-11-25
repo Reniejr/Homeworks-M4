@@ -6,13 +6,14 @@ import {Link, withRouter} from 'react-router-dom'
 class NavbarRestaurant extends PureComponent {
     render() {
         let {projectTitle} = this.props
-        console.log(this.props)
         return (
             <nav className='navBar-restaurant'>
                 <div className="logo">
                     <img src='' alt=""/>
                     <div className="projectTitle">
+                        <Link to='/'>
                              {projectTitle}
+                        </Link>
                     </div>
                 </div>
                 <ul id="nav-list">

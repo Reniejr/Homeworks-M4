@@ -9,6 +9,7 @@ html, body {
   background-size: cover;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #root{
@@ -19,10 +20,12 @@ html, body {
 #router-main{
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .active{
   text-decoration: underline;
+  color: white;
 }
 
 code {

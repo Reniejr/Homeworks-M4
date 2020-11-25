@@ -1,47 +1,67 @@
-#menu-show {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  .poster {
+#menu {
+  width: 90%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  background-color: white;
+  padding: 30px;
+  #menu-show {
     width: 100%;
-    height: 40vh;
     display: flex;
-    position: relative;
-    .card {
-      width: 20%;
-      height: 100%;
+    flex-direction: column;
+    .poster {
+      width: 100%;
+      height: 40vh;
+      display: flex;
       position: relative;
-      transition: all 1s ease;
-      img {
-        width: 100%;
+      .card {
+        width: 20%;
         height: 100%;
+        position: relative;
         transition: all 1s ease;
-      }
-      .dish-info {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1rem;
-        font-weight: 700;
-        color: white;
-        transition: all 1s ease;
-        p {
-          -webkit-text-stroke: 0.3px black;
+        img {
+          width: 100%;
+          height: 100%;
+          transition: all 1s ease;
         }
-        opacity: 0;
+        .dish-info {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 1rem;
+          font-weight: 700;
+          color: white;
+          transition: all 1s ease;
+          opacity: 0;
+          p {
+            -webkit-text-stroke: 0.3px black;
+          }
+          input {
+            padding: 5px;
+            text-decoration: none;
+            color: white;
+            border: white 2px solid;
+            border-radius: 5px;
+            background-color: transparent;
+            margin: 0 2%;
+          }
+          input:hover {
+            background-color: rgba($color: white, $alpha: 0.3);
+          }
+        }
       }
-    }
-    .card:hover {
-      z-index: 5;
-      img {
-        width: 150%;
-        height: 100%;
-        filter: brightness(70%);
-      }
-      .dish-info {
-        width: 150%;
-        height: 100%;
-        opacity: 1;
+      .card:hover {
+        z-index: 5;
+        img {
+          width: 150%;
+          height: 100%;
+          filter: brightness(70%);
+        }
+        .dish-info {
+          width: 150%;
+          height: 100%;
+          opacity: 1;
+        }
       }
     }
   }

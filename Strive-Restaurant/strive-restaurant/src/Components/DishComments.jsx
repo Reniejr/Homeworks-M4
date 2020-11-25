@@ -3,9 +3,14 @@ import './Styles/DishComments.scss'
 
 export default class DishComments extends PureComponent {
     state={
-        comments:[]
+        comments:null
     }
     
+    componentDidMount(){
+        let dish= this.props.dish
+        this.setState({comments: dish.comments})
+    }
+
     componentDidUpdate = (prevState)=>{
         let dish= this.props.dish
         this.setState({comments: dish.comments})
@@ -18,18 +23,22 @@ export default class DishComments extends PureComponent {
         let {dish}=this.props
         return (
             <div className='comments'>
-                <h4>{dish.name}</h4>
-                <div className='comments-list'>
-                    {this.state.comments.map((comment, index)=>{
-                        return(
-                            <div key={index}>
-                                <p>{comment.author}:</p>
-                                <p>{comment.comment}</p>
-                                <hr/>
-                            </div>
-                        )
-                    })}
-                </div>
+                {this.state.comments &&
+                    <>
+                    <h4>{dish.name}</h4>
+                    <div className='comments-list'>
+                        {this.state.comments.map((comment, index)=>{
+                            return(
+                                <div key={index}>
+                                    <p>{comment.author}:</p>
+                                    <p>{comment.comment}</p>
+                                    <hr/>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    </>
+                }{!this.state.comments && <h1>No Selected</h1>}
             </div>
         )
     }
