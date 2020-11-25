@@ -49,7 +49,7 @@ export default class Home extends PureComponent {
     render() {
         return (
             <div id='home'>
-                <WelcomeSlider/>
+                <WelcomeSlider backroundImage='https://i.ibb.co/RH1jypM/bg.jpg'/>
                 {this.allCat.map((cat, index)=>{
                     return(
                         <div className='slider-container' 

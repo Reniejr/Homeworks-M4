@@ -5,6 +5,7 @@ import NavbarBooks from './Components/NavbarBooks'
 import ToggleBtn from './Components/ToggleBtn'
 import Layout from './Components/Layout'
 import Home from './Components/Home'
+import CategoryPage from './Components/CategoryPage'
 
 export default class RouterWebsite extends PureComponent {
     state = { 
@@ -33,7 +34,7 @@ export default class RouterWebsite extends PureComponent {
                         <Route path='/' exact component={Layout}/>
                         <Route path='/Home' exact component={Home}
                         />
-                        {/* <Route path='/Category-Page/' exact component={}/> */}
+                        <Route path='/Category/' exact component={CategoryPage}/>
                     </Switch>
                 </div>
             </Router>

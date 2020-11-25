@@ -19,8 +19,9 @@ export default class WelcomeSlider extends PureComponent {
 
     render() {
         let num = Math.floor(Math.random()*10)
+        let {backroundImage} = this.props
         return (
-            <div id='slider'>
+            <div id='slider' style={{background:`url("${backroundImage}")`, backgroundSize:'cover'}}>
                 <div className="blurred"></div>
                 <div className="blurred"></div>
                 <div className="slider-container">
