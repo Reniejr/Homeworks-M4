@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import RouterWeb from './RouterWeb';
 
 ReactDOM.render(
   <React.StrictMode>
+    <RouterWeb/>
   </React.StrictMode>,
   document.getElementById('root')
 );

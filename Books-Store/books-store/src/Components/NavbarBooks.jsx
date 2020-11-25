@@ -17,12 +17,8 @@ export default class NavbarBooks extends PureComponent {
     }
 
     render() {
-        let {navList} = this.props
-        let {logo} = this.props
-        let {projectTitle} = this.props
+        let {navList, logo, projectTitle, toggleBtn, toggle} = this.props
         let toggleNav = this.state.toggleNav? 'open' : 'close'
-        let {toggleBtn} = this.props
-        let {toggle} = this.props
         return (
             <nav className={`navBarBooks ${toggleNav} ${toggleBtn}`}>
                 <div className='toggler' onClick={this.togglerClick.bind(this)}></div>
