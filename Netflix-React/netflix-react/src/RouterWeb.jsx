@@ -4,11 +4,10 @@ import Home from './Components/Home'
 import NavbarNetflix from './Components/NavbarNetflix'
 import MovieDetails from './Components/MovieDetails'
 import Accounts from './Components/Accounts'
-import Registration from './Components/Registration'
 
 
 export default class RouterWeb extends PureComponent {
-    state = { searchedMovies: [], searchedLoading: null, newAccount:{}};
+    state = { searchedMovies: [], searchedLoading: null};
 
   showSearchResult = (searchString) => {
     this.setState({ searchedLoading: true });
@@ -29,11 +28,6 @@ export default class RouterWeb extends PureComponent {
       });
   };
 
-  showAccount=(account)=>{
-    this.setState({newAccount: account})
-    console.log(this.state.newAccount)
-    return this.state.newAccount
-  }
 
     render() {
         return (
@@ -41,10 +35,9 @@ export default class RouterWeb extends PureComponent {
                 <div id='router-main'>
                     <NavbarNetflix showSearchResult={this.showSearchResult}/>
                     <Switch>
-                        <Route path='/' exact component={Accounts}/>
+                        <Route path='/' exact />
                         <Route path='/Home' exact render={(props)=><Home searchedMovies={this.state.searchedMovies} searchedLoading={this.state.searchedLoading} {...props}/>}/>
                         <Route path='/Details/:id' render={(props)=><MovieDetails {...props}/>}/>
-                        <Route path='/Registration' exact render={(props)=><Registration showAccount={this.showAccount} {...props}/>}/>
                         <Route path='/Accounts' exact render={(props)=><Accounts account={this.state.newAccount} {...props}/>}/>
                     </Switch>
                 </div>

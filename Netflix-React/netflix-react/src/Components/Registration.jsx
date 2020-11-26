@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react'
 import './Styles/Registration.scss'
 import {Container, Form, Col, Row} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import Images from '../Data/Images.json'
 
 export default class Registration extends PureComponent {
+    forAccount = Images.filter(img=>img.target==='Accounts')
+    profile = this.forAccount.filter(img=>img.name==='Profile')
+
     state={
         registration:{
             firstname :'',
@@ -13,9 +16,11 @@ export default class Registration extends PureComponent {
             birth: '',
             city: '',
             street: '',
-            postal: ''
-
-        }
+            postal: '',
+            credit:'',
+        },
+        img:'',
+        selected:null
     }
 
     updateForm=(e)=>{
@@ -25,17 +30,21 @@ export default class Registration extends PureComponent {
         this.setState({registration : registration})
     }
 
-    check=()=>{
-        this.props.showAccount(this.state.registration)
-        console.log(this.state.registration)
-        console.log(this.props.account)
-        // window.location.assign('/Accounts')
+    check=(event)=>{
+        event.preventDefault()
+        this.props.makeAccount(this.state.registration, this.state.img)
+    }
+
+    selectImg = (src, index)=>{
+        this.setState({img: src, selected:index})
+
     }
 
     render() {
-        // console.log(this.props.showAccount)
+        const {style} = this.props
+        // const selected = this.state.selected? '' : '2px solid green'
         return (
-            <div id='registration'>
+            <div id='registration' style={{display: `${style}`}} >
                 <Container>
                     <h2>Please Register to make your Account</h2>
                     <Form onSubmit={this.check}>
@@ -89,6 +98,21 @@ export default class Registration extends PureComponent {
                                         id="street"
                                         placeholder="Street Address"
                                         value={this.state.registration.street}
+                                        onChange={this.updateForm}
+                                    />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label htmlFor="credit">Credit Card</Form.Label>
+                                    <Form.Control
+                                        required
+                                        type="number"
+                                        name="credit"
+                                        id="credit"
+                                        placeholder="XXXX XXXX XXXX XXXX"
+                                        inputMode='numeric'
+                                        pattern='[0-9\s]{13,19}'
+                                        maxLength='19'
+                                        value={this.state.registration.credit}
                                         onChange={this.updateForm}
                                     />
                                 </Form.Group>
@@ -147,8 +171,28 @@ export default class Registration extends PureComponent {
                                     />
                                 </Form.Group>
                             </Col>
+                            <div className='profileImg-slider'>
+                                <div className="profiles-container">
+                                    {this.profile.map((pic, index)=>{
+                                        return(
+                                            <img
+                                            src={`${pic.src}`}
+                                            alt='' 
+                                            key={index} 
+                                            onClick={(e)=>this.selectImg(pic.src, index)}
+                                            style={
+                                                {
+                                                    border : this.state.selected === index ? '2px solid green' : 'none',
+                                                    transform : this.state.selected === index ? 'scale(1.2)' : 'none'
+                                                }
+                                            }
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                            <input type="submit" value='Registrate'/>
                         </Row>
-                            <input type="button" value='Registrate' onClick={this.check}/>
                     </Form>
                 </Container>
             </div>
