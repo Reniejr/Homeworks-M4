@@ -8,11 +8,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: rgba($color: black, $alpha: 0.5);
   color: #ffffff;
   transition: all 1s ease;
   margin-top: 0px;
-  z-index: 1;
+  z-index: 10;
   .first-nav-part {
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
     list-style: none;
     font-size: 0.8rem;
     a {
-      color: white;
+      color: rgba($color: white, $alpha: 0.5);
       text-decoration: none;
       .nav-item {
         margin: 0 0.5rem;

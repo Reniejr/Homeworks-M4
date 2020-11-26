@@ -20,7 +20,7 @@ export default class RouterWeb extends PureComponent {
                         <Route path='/Menu' exact render={(props)=><MenuShow {...props}/>}/>
                         <Route path='/Reserve Table' exact component={ReservationForm}/>
                         <Route path='/Details/:id' render={(props)=><DishDetails {...props}/>}/>
-                        <Route path='/Reservations' exact component={Reservations}/>
+                        <Route path='/Reservations' exact render={(props)=><Reservations {...props}/>}/>
                     </Switch>
                 </div>
             </Router>

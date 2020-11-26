@@ -2,10 +2,19 @@ import React, { PureComponent } from 'react'
 import './Styles/NavbarNetflix.scss'
 import NavbarItems from '../Data/NavbarItems.json'
 import NavbarAccounts from '../Data/NavbarAccounts.json'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
-export default class NavbarNetflix extends PureComponent {
-    state={dropAccount:true, searchField:true}
+class NavbarNetflix extends PureComponent {
+    state={dropAccount:true, searchField:true, searchString: ''}
+
+    updateSearch=(e)=>{
+        if (e.keyCode === 13 || e.key === "Enter") {
+            this.props.showSearchResult(this.state.searchString);
+            // console.log(this.state.searchString)
+          } else {
+            this.setState({ searchString: e.currentTarget.value });
+          }
+    }
 
     dropAccount = ()=>{this.setState({dropAccount : !this.state.dropAccount})}
 
@@ -25,7 +34,7 @@ export default class NavbarNetflix extends PureComponent {
                     {NavbarItems.map((item, index)=>{
                         return(
                             <Link to={`/${item.name}`} key={index}>
-                                <li className="nav-item">
+                                <li className={`nav-item ${this.props.location.pathname === `/${item.name}`? 'active' : ''}`}>
                                     <p>{item.name}</p>
                                 </li>
                             </Link>
@@ -36,7 +45,11 @@ export default class NavbarNetflix extends PureComponent {
 
             <div className="search">
                 <div className="searchField" style={{width:`${searchFieldTransition}`, opacity:`${searchField}`}}>
-                    <input type="text" placeholder="Search" />
+                    <input type="text" placeholder="Search"
+                    value={this.state.searchString}
+                    onKeyDown={this.updateSearch}
+                    onChange={this.updateSearch}
+                    />
                     <input type="button" value="Search" />
                 </div>
                 <ion-icon name="search-outline" className="search-btn" onClick={this.showSearch.bind(this)}></ion-icon>
@@ -60,3 +73,4 @@ export default class NavbarNetflix extends PureComponent {
         )
     }
 }
+export default withRouter(NavbarNetflix)

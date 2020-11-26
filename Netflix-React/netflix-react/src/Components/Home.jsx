@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import './Styles/Home.scss'
-import Movie from './Movie'
-import {} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
+import Gallery from './Gallery'
+import PosterVid from './PosterVid'
 
 export default class Home extends PureComponent {
     url = 'http://www.omdbapi.com/?'
@@ -14,10 +15,9 @@ export default class Home extends PureComponent {
         serie2:[],
         serie3:[],
         margin: '0',
-        loading: true
+        loading: true,
+        error: false
     }
-
-
 
     componentDidMount = ()=>{
         Promise.all([
@@ -40,6 +40,11 @@ export default class Home extends PureComponent {
                 this.showcase.push(this.state.serie3)
             })
         ])
+        .then(()=>setTimeout(()=>{this.setState({loading: false})}, 1000))
+        .catch((err) => {
+            this.setState({ error: true });
+            console.log("An error has occurred:", err);
+        });
         console.log(this.showcase)
     }
     
@@ -50,29 +55,43 @@ export default class Home extends PureComponent {
     render() {
         return (
             <div className='home'>
-                {this.showcase.map((serie, index)=>{
+                <PosterVid videoSrc='./assets/Video/video.mp4'/>
+                {this.state.error && (
+                    <Alert variant="danger" className="text-center">
+                    An error has occurred, please try again later
+                    </Alert>
+                )}
+                 {!this.state.error &&
+                    (this.props.searchedMovies.length > 0 ||
+                    this.props.searchedLoading === true) && (
+                    <Gallery
+                        titles="Search Results"
+                        loading={this.props.searchedLoading}
+                        serie={this.props.searchedMovies}
+                        margin={this.state.margin}
+                        slide={this.slide.bind(this)}
+                    />
+                    )}
+                {!this.state.error && (!this.props.searchedMovies.length > 0 || this.props.searchedLoading === null) &&(
+                    <>
+                        {this.showcase.map((serie, index)=>{
                     return(
-                        <div className="gallery-container" key={index}>
-                            <h4>{this.titles[index]}</h4>
-                            <i className="fas fa-chevron-left" onClick={this.slide.bind(this)}></i>
-                            <i className="fas fa-chevron-right" onClick={this.slide.bind(this)}></i>
-                            <div className='gallery' style={{marginLeft:`${this.state.margin}`}}>
-                                {serie.map(movie=>{
-                                    return(
-                                    <Movie poster={movie.Poster} title={movie.Title} year={movie.Year} key={movie.imdbID}/>
-                                    )
-                                })}
-                            </div>
-                        </div>
+                        <Gallery
+                        serie={serie}
+                        titles={this.titles}
+                        index={index}
+                        slide={this.slide.bind(this)}
+                        margin={this.state.margin}
+                        loading={this.state.loading}
+                        key={index}
+                        />
+                        
                     )
                 })}
-                {/* <div className='gallery'>
-                {this.state.serie1.map(movie=>{
-                    return(
-                        <Movie poster={movie.Poster} key={movie.imdbID}/>
-                    )
-                })}
-                </div> */}
+                    </>
+                )}
+                
+                
             </div>
         )
     }
