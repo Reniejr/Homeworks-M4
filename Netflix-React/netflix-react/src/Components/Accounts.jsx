@@ -3,8 +3,19 @@ import './Styles/Accounts.scss'
 import {Link} from 'react-router-dom'
 
 export default class Accounts extends PureComponent {
+    state={
+        account:''
+    }
+
+
+    componentDidUpdate(prevProps){
+        if(prevProps.account !== this.props.account){
+            this.setState({account: this.props.acount})
+            console.log(this.state.account)
+        }
+    }
+    
     render() {
-        console.log(this.props.show)
         return (
             <div id='accounts'>
                 <Link to='/Registration'>

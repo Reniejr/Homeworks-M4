@@ -23,16 +23,17 @@ export default class Registration extends PureComponent {
         let currentId = e.currentTarget.id
         registration[currentId] = e.currentTarget.value;
         this.setState({registration : registration})
-        // console.log(this.state.registration)
     }
 
     check=()=>{
-        this.props.account(this.state.registration)
+        this.props.showAccount(this.state.registration)
+        console.log(this.state.registration)
+        console.log(this.props.account)
+        // window.location.assign('/Accounts')
     }
 
-    
-
     render() {
+        // console.log(this.props.showAccount)
         return (
             <div id='registration'>
                 <Container>
@@ -69,12 +70,14 @@ export default class Registration extends PureComponent {
                                     <Form.Label htmlFor="birth">Birth Year</Form.Label>
                                     <Form.Control
                                         required
-                                        type="text"
+                                        type="number"
                                         name="birth"
                                         id="birth"
                                         placeholder="Birth Year"
                                         value={this.state.registration.birth}
                                         onChange={this.updateForm}
+                                        min='1910'
+                                        max='2020'
                                     />
                                 </Form.Group>
                                 <Form.Group>
@@ -133,7 +136,7 @@ export default class Registration extends PureComponent {
                                     <Form.Label htmlFor="postal">Postal Code</Form.Label>
                                     <Form.Control
                                         required
-                                        type="text"
+                                        type="number"
                                         name="postal"
                                         id="postal"
                                         placeholder="Your Postal Code"
@@ -145,9 +148,7 @@ export default class Registration extends PureComponent {
                                 </Form.Group>
                             </Col>
                         </Row>
-                        <Link to='/Accounts'>
-                            <input type="submit" value='Registrate'/>
-                        </Link>
+                            <input type="button" value='Registrate' onClick={this.check}/>
                     </Form>
                 </Container>
             </div>
