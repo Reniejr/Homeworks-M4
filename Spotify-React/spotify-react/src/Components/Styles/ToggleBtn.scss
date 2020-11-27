@@ -1,0 +1,15 @@
+.toggle_btn {
+  width: 44px;
+  height: 24px;
+  border-radius: 20px;
+  padding: 2px;
+  transition: all 0.3s ease;
+  .togglerBtn {
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.3s linear;
+    cursor: pointer;
+  }
+}

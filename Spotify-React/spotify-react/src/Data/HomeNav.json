@@ -1,0 +1,64 @@
+[
+    {
+        "name": "Trending",
+        "hashtag" : ["#Throwback","Top"],
+        "playlists": [
+            [
+                {
+                    "title" : "Peaky Blinders",
+                    "id":"6166124464"
+                },
+                {
+                    "title" : "Casa De Papel",
+                    "id":"6257604024"
+                },
+                {
+                    "title" : "Black Panther",
+                    "id":"6032752844"
+                },
+                {
+                    "title" : "Southpaw",
+                    "id":"5327254342"
+                },
+                {
+                    "title" : "Creed",
+                    "id":"6837972144"
+                }
+
+            ],
+            [
+                {
+                    "title" : "Top Hits Italy",
+                    "id":"579513551"
+                },
+                {
+                    "title" : "Top Hits Usa",
+                    "id":"8133897762"
+                },
+                {
+                    "title" : "Top Global",
+                    "id":"179696182"
+                }
+
+            ]
+        
+        ]
+    },
+    {
+        "name": "Podcast",
+        "hashtag": ["Podcast"],
+        "playlists":[[]]
+    },
+    {
+        "name": "Moods and Genres",
+        "playlists":[]
+    },
+    {
+        "name": "New Releases",
+        "playlists":[]
+    },
+    {
+        "name": "Discover",
+        "playlists":[]
+    }
+]
