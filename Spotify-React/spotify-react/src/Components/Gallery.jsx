@@ -8,8 +8,8 @@ export default class Gallery extends PureComponent {
     headers = {
 		"x-rapidapi-key": "6cc8e6c6femsh03ff5cffd3927e2p12ac5djsn4ad2e0705629",
 		"x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-	}
-
+    }
+    
     state={
         selected:this.props.selected,
         section: this.props.section,
@@ -17,33 +17,31 @@ export default class Gallery extends PureComponent {
         loading:true
     }
 
-    // fetchPlaylist = async (playlists)=>{
-    //     let array = []
-    //     playlists.map(async(item)=>{
-    //         let response = await fetch(
-    //                 this.urlPlayists+item.id,
-    //                 {headers: this.headers}
-    //         )
-    //         let result = await response.json()
-    //         array.push(result)
-    //         // this.setState({playlist: [...this.state.playlist, result]})
+    fetchPlaylist = async (playlists)=>{
+        let array = []
+        playlists.map(async(item)=>{
+            let response = await fetch(
+                    this.urlPlayists+item.id,
+                    {headers: this.headers}
+            )
+            let result = await response.json()
+            array.push(result)
+            // this.setState({playlist: [...this.state.playlist, result]})
             
-    //     })
-    //     this.setState({playlist: [...this.state.playlist, array]})
-    // }
+        })
+        this.setState({playlist: [...this.state.playlist, array]})
+    }
 
     componentDidMount(){
         setTimeout(()=>{
             this.setState({loading: false})
-            HomeNav[0].playlists.map(list=>this.props.fetch(list))
-            // console.log(this.state.playlist)
+            HomeNav[0].playlists.map(list=>this.fetchPlaylist(list))
         }, 1000)
     }
 
     componentDidUpdate(prevProps, prevState){
         if(prevState.section !== this.state.section){
-            console.log(this.state.selected)
-            // this.fetchPlaylist(this.state.playlist)
+            this.fetchPlaylist(this.state.playlist)
         }
     }
 
@@ -66,7 +64,7 @@ export default class Gallery extends PureComponent {
                                 })
                             ):(
                                 // <h1>loading...</h1>
-                                this.state.playlist.map((item)=>{
+                                this.state.playlist.map(item=>{
                                     return(
                                         item.map(cover=>{
                                                 return(
@@ -77,6 +75,7 @@ export default class Gallery extends PureComponent {
                                                 )        
                                         })
                                     )
+                                    
                                 })
                             )}
                         </div>

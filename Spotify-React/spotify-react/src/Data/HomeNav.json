@@ -51,14 +51,17 @@
     },
     {
         "name": "Moods and Genres",
+        "hashtag": ["Moods", "Genres"],
         "playlists":[]
     },
     {
         "name": "New Releases",
+        "hashtag": ["New Releases"],
         "playlists":[]
     },
     {
         "name": "Discover",
+        "hashtag": ["Discover"],
         "playlists":[]
     }
 ]

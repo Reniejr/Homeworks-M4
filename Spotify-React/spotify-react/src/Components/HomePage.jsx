@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import './Styles/HomePage.scss'
 import HomeNav from '../Data/HomeNav.json'
 import Gallery from './Gallery'
-import {Row, Spinner} from 'react-bootstrap'
+// import {Row, Spinner} from 'react-bootstrap'
 
 export default class HomePage extends PureComponent {
     urlPlayists = "https://deezerdevs-deezer.p.rapidapi.com/playlist/"
@@ -19,13 +19,12 @@ export default class HomePage extends PureComponent {
     }
     
     select = async (index, hashtag, playlist)=>{
-        console.log(playlist)
         this.setState({
             selected: index,
             section: hashtag,
-            playlist: playlist
+            playlist: [playlist]
         })
-        playlist.map(list=>this.fetchPlaylist(list))
+        this.state.playlist.map(list=>this.fetchPlaylist(list))
     }
 
     fetchPlaylist = async (playlists)=>{
