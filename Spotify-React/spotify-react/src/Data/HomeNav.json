@@ -3,7 +3,7 @@
         "name": "Trending",
         "hashtag" : ["#Throwback","Top"],
         "playlists": [
-            [
+            
                 {
                     "title" : "Peaky Blinders",
                     "id":"6166124464"
@@ -25,22 +25,6 @@
                     "id":"6837972144"
                 }
 
-            ],
-            [
-                {
-                    "title" : "Top Hits Italy",
-                    "id":"579513551"
-                },
-                {
-                    "title" : "Top Hits Usa",
-                    "id":"8133897762"
-                },
-                {
-                    "title" : "Top Global",
-                    "id":"179696182"
-                }
-
-            ]
         
         ]
     },

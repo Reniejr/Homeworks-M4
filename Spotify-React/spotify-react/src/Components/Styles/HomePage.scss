@@ -15,11 +15,11 @@
         margin: 0 20px;
         text-transform: uppercase;
         cursor: pointer;
-        color: rgba($color: white, $alpha: 0.5);
+        // color: rgba($color: white, $alpha: 0.5);
         transition: all 0.5s ease;
       }
       li:hover {
-        color: white;
+        color: rgb(216, 168, 168);
       }
     }
   }

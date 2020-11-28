@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import './Styles/HomePage.scss'
 import HomeNav from '../Data/HomeNav.json'
 import Gallery from './Gallery'
-// import {Row, Spinner} from 'react-bootstrap'
+import {Row, Spinner} from 'react-bootstrap'
 
 export default class HomePage extends PureComponent {
     urlPlayists = "https://deezerdevs-deezer.p.rapidapi.com/playlist/"
@@ -13,7 +13,7 @@ export default class HomePage extends PureComponent {
 
     state={
         selected:null,
-        section: ['#Throwback', "Top"],
+        section: '#Throwback',
         playlist: [],
         loading:true
     }
@@ -22,32 +22,35 @@ export default class HomePage extends PureComponent {
         this.setState({
             selected: index,
             section: hashtag,
-            playlist: [playlist]
+            playlist: playlist
         })
-        this.state.playlist.map(list=>this.fetchPlaylist(list))
+        // this.state.playlist.map(list=>this.fetchPlaylist(list))
+        this.fetchPlaylist(playlist)
     }
 
     fetchPlaylist = async (playlists)=>{
-        let array= []
+        // let array= []
         playlists.map(async(item)=>{
             let response = await fetch(
                     this.urlPlayists+item.id,
                     {headers: this.headers}
             )
             let result = await response.json()
-            array.push(result)
+            // array.push(result)
+            this.setState({playlist:[...this.state.playlist, result]})
             
         })
-        this.setState({playlist:[...this.state.playlist, array]})
+        // this.setState({playlist:[...this.state.playlist, array]})
         
     }
 
-    // componentDidMount = async()=>{
-    //     setTimeout(()=>{
-    //         this.setState({loading: false})
-    //         HomeNav[0].playlists.map(list=>this.fetchPlaylist(list))
-    //     }, 2000)
-    // }
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({loading: false})
+            // HomeNav[0].playlists.map(list=>this.fetchPlaylist(list))
+            this.fetchPlaylist(HomeNav[0].playlists)
+        }, 2000)
+    }
 
     // componentDidUpdate(prevProps, prevState){
     //     if(prevState.section !== this.state.section && prevState.playlist !== this.state.playlist){
@@ -59,7 +62,7 @@ export default class HomePage extends PureComponent {
         let {theme} = this.props
         return (
             <div id='homepage' className={theme}>
-                <nav>
+                <nav className={theme}>
                     <ul>
                         {HomeNav.map((item, index)=>{
                             return(
@@ -79,49 +82,58 @@ export default class HomePage extends PureComponent {
                         })}
                     </ul>
                 </nav>
-                {this.state.section.map((hashtag, index)=>{
-                    return(
-                        <Gallery
-                        fetch={this.fetchPlaylist}
-                        index={index}
-                        hashtag={hashtag}
-                        selected={this.state.selected}
-                        section={this.state.section}
-                        playlist={this.state.playlist}
-                        key={index}
-                        />
-                    // <Row key={index}>
-                    //     <h1>{hashtag}</h1>
-                    //     <div className="gallery">
-                    //         {this.state.loading && this.state.playlist.length<=0 ? (
-                    //             ['0','1','2','3','4'].map(item=>{
-                    //                 return(
-                    //                     <div className="coverPlay" key={item.id}>
-                    //                     <Spinner 
-                    //                     animation='border'
-                    //                     variant='light'
-                    //                     />
-                    //                 </div>
-                    //                 )
-                    //             })
-                    //         ):(
-                    //             this.state.playlist.map((item, index)=>{
-                    //                 return(
-                    //                     item.map(cover=>{
-                    //                         return(
-                    //                             <div className="coverPlay" key={cover.id}>
-                    //                                 <img src={cover.picture_big} alt=""/>
-                    //                                 <p>{cover.title}</p>
-                    //                             </div>
-                    //                         )
-                    //                     })
-                    //                 )
-                    //             })
-                    //         )}
-                    //     </div>
-                    // </Row>
-                    )
-                })}
+                {/* {this.state.section.map((hashtag, index)=>{
+                    return( */}
+
+                        {/* //<Gallery
+                        // fetch={this.fetchPlaylist}
+                        // index={index}
+                        // hashtag={hashtag}
+                        // selected={this.state.selected}
+                        // section={this.state.section}
+                        // playlist={this.state.playlist}
+                        // key={index}
+                        // /> */}
+                    <Row /*key={index}*/>
+                        <h1>{this.state.section}</h1>
+                        <div className="gallery">
+                            {this.state.loading && this.state.playlist.length<=0 ? (
+                                ['0','1','2','3','4'].map(item=>{
+                                    return(
+                                        <div className="coverPlay" key={item.id}>
+                                        <Spinner 
+                                        animation='border'
+                                        variant='light'
+                                        />
+                                    </div>
+                                    )
+                                })
+                            ):(
+                                this.state.playlist.map(item=>{
+                                    return(
+                                        <div className="coverPlay" key={item.id}>
+                                                    <img src={item.picture_big} alt=""/>
+                                                    <p>{item.title}</p>
+                                                </div>
+                                )
+                                })
+                                // this.state.playlist.map((item, index)=>{
+                                //     return(
+                                //         item.map(cover=>{
+                                //             return(
+                                //                 <div className="coverPlay" key={cover.id}>
+                                //                     <img src={cover.picture_big} alt=""/>
+                                //                     <p>{cover.title}</p>
+                                //                 </div>
+                                //             )
+                                //         })
+                                //     )
+                                // })
+                            )}
+                        </div>
+                    </Row>
+                {/* //     )
+                // })} */}
                     
             </div>
         )
